@@ -12,7 +12,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className="App d-flex flex-column min-vh-100">
       <Header
         title="Weather App"
         subtitle="Your city's weather at a glance"

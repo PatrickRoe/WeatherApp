@@ -1,6 +1,5 @@
 .main {
   padding: 20px;
-  text-align: center;
 }
 
 .weather-info {
@@ -8,9 +7,37 @@
 }
 
 .weather-info h2 {
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
 .weather-info p {
   font-size: 1.2em;
+}
+
+.forecast {
+  margin-top: 20px;
+}
+
+.forecast h3 {
+  margin-bottom: 20px;
+}
+
+.forecast .card {
+  margin: 10px;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.forecast .card-body {
+  padding: 20px;
+}
+
+.forecast .card-title {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.forecast .card-text {
+  font-size: 1em;
+  margin-top: 10px;
 }

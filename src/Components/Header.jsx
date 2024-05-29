@@ -19,21 +19,25 @@ const Header = ({ title, subtitle, onSearch }) => {
   };
 
   return (
-    <header className="header">
-      <h1 className="header-title">{title}</h1>
-      {subtitle && <h2 className="header-subtitle">{subtitle}</h2>}
-      <div className="search-bar">
-        <input
-          type="text"
-          className="search-input"
-          placeholder="Enter city name"
-          value={searchTerm}
-          onChange={handleInputChange}
-          onKeyPress={handleKeyPress}
-        />
-        <button className="search-button" onClick={handleSearch}>
-          Search
-        </button>
+    <header className="header bg-primary text-white text-center py-4">
+      <div className="container">
+        <h1 className="display-4">{title}</h1>
+        {subtitle && <h2 className="lead">{subtitle}</h2>}
+        <div className="input-group mt-4">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Enter city name"
+            value={searchTerm}
+            onChange={handleInputChange}
+            onKeyPress={handleKeyPress}
+          />
+          <div className="input-group-append">
+            <button className="btn btn-light" onClick={handleSearch}>
+              Search
+            </button>
+          </div>
+        </div>
       </div>
     </header>
   );
