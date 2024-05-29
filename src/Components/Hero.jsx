@@ -1,6 +1,7 @@
+//Hero.jsx
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./Main.css";
+import "./Hero.css";
 
 const Main = ({ city }) => {
   const [weather, setWeather] = useState(null);

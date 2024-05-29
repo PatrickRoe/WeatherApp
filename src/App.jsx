@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "./Components/Header";
-import Main from "./Components/Main";
+import Hero from "./Components/Hero";
 import Footer from "./Components/Footer";
 import "./App.css";
 
@@ -18,7 +18,7 @@ const App = () => {
         subtitle="Your city's weather at a glance"
         onSearch={handleSearch}
       />
-      <Main city={city} />
+      <Hero city={city} />
       <Footer />
     </div>
   );
