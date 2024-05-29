@@ -1,13 +1,10 @@
-//Hero.jsx
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Hero.css";
-
-const Main = ({ city }) => {
+const Hero = ({ city }) => {
   const [weather, setWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
   const [error, setError] = useState(null);
-
   useEffect(() => {
     if (city) {
       const fetchWeather = async () => {
@@ -29,7 +26,6 @@ const Main = ({ city }) => {
           setWeather(null);
         }
       };
-
       const fetchForecast = async () => {
         try {
           const response = await axios.get(
@@ -39,28 +35,36 @@ const Main = ({ city }) => {
                 q: city,
                 appid: "983923c3fed3590893a7bf30ff519d5c",
                 units: "metric",
-                cnt: 5, // 5-day forecast
+                cnt: 48, // 5-day forecast
               },
             }
           );
-          setForecast(response.data);
+          // Deduplizieren nach Datum, um einen Eintrag pro Tag zu erhalten
+          const filteredForecast = [];
+          const uniqueDays = new Set();
+          response.data.list.forEach((entry) => {
+            const date = new Date(entry.dt * 1000);
+            const day = date.toLocaleDateString("en-US", { weekday: "long" });
+            if (!uniqueDays.has(day)) {
+              uniqueDays.add(day);
+              filteredForecast.push(entry);
+            }
+          });
+          setForecast({ list: filteredForecast });
           setError(null);
         } catch (err) {
           setError("Failed to fetch forecast data");
           setForecast(null);
         }
       };
-
       fetchWeather();
       fetchForecast();
     }
   }, [city]);
-
   const getDayName = (timestamp) => {
     const date = new Date(timestamp * 1000);
     return date.toLocaleDateString("en-US", { weekday: "long" });
   };
-
   return (
     <main className="main container mt-4">
       {weather ? (
@@ -99,5 +103,4 @@ const Main = ({ city }) => {
     </main>
   );
 };
-
-export default Main;
+export default Hero;
