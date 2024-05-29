@@ -11,7 +11,7 @@ Features
 
 *   **Current Weather**: Displays the current temperature, weather condition, and a brief description for the searched city.
     
-*   **5-Day Forecast**: Shows the temperature and weather conditions for the next five days with appropriate weather icons.
+*   **6-Day Forecast**: Shows the temperature and weather conditions for the next six days with appropriate weather icons.
     
 *   **Search Functionality**: Allows users to search for weather information by entering the city name.
     
