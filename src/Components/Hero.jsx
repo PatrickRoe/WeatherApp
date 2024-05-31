@@ -1,11 +1,13 @@
-//Hero.jsx
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Hero.css";
+
 const Hero = ({ city }) => {
   const [weather, setWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
   const [error, setError] = useState(null);
+  const [backgroundImage, setBackgroundImage] = useState(null);
+
   useEffect(() => {
     if (city) {
       const fetchWeather = async () => {
@@ -27,6 +29,7 @@ const Hero = ({ city }) => {
           setWeather(null);
         }
       };
+
       const fetchForecast = async () => {
         try {
           const response = await axios.get(
@@ -36,11 +39,10 @@ const Hero = ({ city }) => {
                 q: city,
                 appid: "983923c3fed3590893a7bf30ff519d5c",
                 units: "metric",
-                cnt: 48, // 5-day forecast
+                cnt: 48,
               },
             }
           );
-          // Deduplizieren nach Datum, um einen Eintrag pro Tag zu erhalten
           const filteredForecast = [];
           const uniqueDays = new Set();
           response.data.list.forEach((entry) => {
@@ -58,18 +60,43 @@ const Hero = ({ city }) => {
           setForecast(null);
         }
       };
+
+      const fetchBackgroundImage = async () => {
+        try {
+          const response = await axios.get(
+            `https://api.unsplash.com/photos/random`,
+            {
+              params: {
+                query: city,
+                client_id: "YOUR_UNSPLASH_ACCESS_KEY",
+              },
+            }
+          );
+          setBackgroundImage(response.data.urls.full);
+        } catch (err) {
+          console.error("Failed to fetch background image");
+          setBackgroundImage(null);
+        }
+      };
+
       fetchWeather();
       fetchForecast();
+      fetchBackgroundImage();
     }
   }, [city]);
+
   const getDayName = (timestamp) => {
     const date = new Date(timestamp * 1000);
     return date.toLocaleDateString("en-US", { weekday: "long" });
   };
+
   return (
-    <main className="main container mt-4">
+    <main
+      className="main"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
       {weather ? (
-        <div className="weather-info text-center mb-5">
+        <div className="weather-info mb-5">
           <h2 className="my-4">{`Weather in ${city}`}</h2>
           <p className="display-4">{`${weather.main.temp} °C`}</p>
           <p>{`${weather.weather[0].description}`}</p>
@@ -104,4 +131,5 @@ const Hero = ({ city }) => {
     </main>
   );
 };
+
 export default Hero;

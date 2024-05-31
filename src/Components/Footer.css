@@ -1,9 +1,12 @@
 .footer {
-  background-color: #007bff;
+  background: #0e97b3;
   color: white;
-  padding: 10px;
   text-align: center;
-  position: relative;
+  position: fixed;
   width: 100%;
   bottom: 0;
+}
+.container {
+  text-align: center;
+  padding-top: 15px;
 }

@@ -1,4 +1,3 @@
-//App.jsx
 import { useState } from "react";
 import Header from "./Components/Header";
 import Hero from "./Components/Hero";
@@ -13,7 +12,7 @@ const App = () => {
   };
 
   return (
-    <div className="App d-flex flex-column min-vh-100">
+    <div className="App">
       <Header
         title="Weather App"
         subtitle="Your city's weather at a glance"
