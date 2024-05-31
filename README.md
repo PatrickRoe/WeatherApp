@@ -16,6 +16,8 @@ Features
 *   **Search Functionality**: Allows users to search for weather information by entering the city name.
     
 *   **Responsive Design**: Optimized for both desktop and mobile views using Bootstrap.
+
+*  **Dynamic Background:** Changes the background image based on the searched city using the Unsplash API.
     
 
 Technologies Used
@@ -28,3 +30,5 @@ Technologies Used
 *   **Axios**: HTTP client for making API requests.
     
 *   **OpenWeatherMap API**: Provides weather data for the app.
+
+*  **Unsplash API:** Provides background images for the app.
