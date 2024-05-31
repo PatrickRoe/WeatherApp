@@ -68,7 +68,7 @@ const Hero = ({ city }) => {
             {
               params: {
                 query: city,
-                client_id: "YOUR_UNSPLASH_ACCESS_KEY",
+                client_id: "W1eJ_D4IEhblOsfW9ykmC8KlfjhPGvzat_U5_fG1r_E",
               },
             }
           );
