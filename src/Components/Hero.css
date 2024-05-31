@@ -47,6 +47,8 @@
 }
 
 .forecast .card {
+  width: 110%;
+  height: 100%;
   margin: 10px;
   border: none;
   background: rgba(0, 0, 0, 0.3); /* More transparent background */
