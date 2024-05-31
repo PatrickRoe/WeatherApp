@@ -4,7 +4,7 @@ Weather App
 Overview
 --------
 
-Weather App is a React-based application that provides current weather information and a 5-day weather forecast for any city. The app uses the OpenWeatherMap API to fetch weather data and displays it elegantly using Bootstrap for styling.
+Weather App is a React-based application that provides current weather information and a 6-day weather forecast for any city. The app uses the OpenWeatherMap API to fetch weather data and displays it elegantly using Bootstrap for styling.
 
 Features
 --------
